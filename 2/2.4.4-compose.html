@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>uder</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var A = function(A1){
+			return A1 + 2;
+		}
+
+		var B = function(B1){
+			return B1 * 2;
+		}
+
+		var C = function(C1){
+			return C1 * C1;
+		}
+
+		var D = _.compose(A, B, C);
+
+		console.log(D(3))
+	</script>
+</body>
+</html>

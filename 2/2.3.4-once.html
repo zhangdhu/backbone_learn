@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>uder</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var num, str;
+		var fun = function(){
+			num = 0; str = "1";
+			console.log("初始化完成！")
+		}
+		var init = _.once(fun)
+
+		init();
+
+		console.log("初始化的数据为-->num:" + num + ";str:" + str);
+	</script>
+</body>
+</html>

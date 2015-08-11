@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>uder</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var input = function(n, s){
+			return s ? n + ", 先生": n + ", 女士";
+		} 
+
+		input = _.wrap(input, function(input){
+			return "你好," + input("张大虎", 1) + ", 欢迎来到underscore世界！"
+		})
+
+		console.log(input())
+	</script>
+</body>
+</html>

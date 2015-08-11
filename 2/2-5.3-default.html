@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>uder</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var info = {};
+
+		info = _.defaults(info, {
+			name: "",
+			email: "200715251@qq.com"
+		}, {
+			age: 28
+		})
+		info.age = 30;
+		info.name = "张大虎";
+
+		console.log(info)
+
+	</script>
+</body>
+</html>

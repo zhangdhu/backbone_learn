@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>uder</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var o = Object.create({
+            "say": function () {
+                alert(this.name);
+            },
+            "name":"Byron"
+        });
+
+        Object.defineProperty(o,'age', {
+            value: 24,
+            writable: true,
+            enumerable: true,
+            configurable: true
+        });
+
+        Object.defineProperty(o, 'sex', {
+            value: 'male',
+            writable: false,
+            enumerable: false,
+            configurable: false
+        });
+
+        console.log(o.age); //24
+        
+        o.age = 25;
+
+        for (var obj in o) {
+            console.log(obj + ' : ' + o[obj]);
+            /*
+            age : 25  //没有把sex ： male 遍历出来
+            say : function () {
+                alert(this.name);
+            } 
+            name : Byron 
+            */
+        }
+        delete o.age;
+        console.log(o.age);//undefined 
+
+        console.log(o.sex); //male
+        //o.sex = 'female'; //Cannot assign to read only property 'sex' of #<Object> 
+        delete o.age; 
+        console.log(o.sex); //male ,并没有被删除
+
+
+
+	</script>
+</body>
+</html>
