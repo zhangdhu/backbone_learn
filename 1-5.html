@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>uder</title>
+	  <script src="js/jquery.js"></script>
+	  <script src="js/underscore.js"></script>
+	  <script src="js/backbone.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		$(function(){
+			//定义模型
+			window.Test = Backbone.Model.extend({
+				defaults:{
+					content:''
+				}
+			})	
+			//定义集合类
+			window.TestList = Backbone.Collection.extend({
+				model:Test
+			})
+		 	//向模型添加数据
+		 	var data = new TestList({
+		 		content:'hello backbone'
+		 	})
+		 	//创建view 对象
+		 	window.TestView = Backbone.View.extend({
+		 		el: $("body"),
+		 		initialize: function(){
+		 			$("#divTip").html(data.models[0].get("content"))
+		 		}
+		 	})
+
+		 	window.App = new TestView;
+		})
+	</script>
+</body>
+</html>

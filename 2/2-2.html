@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>uder</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var arr = _.map([1, 2, 3, 4, 5, 6], function(n){
+			if( !(n % 2)){
+				return n;
+			}
+		});
+
+		for (var i = arr.length - 1; i >= 0; i--) {
+			if(arr[i] != undefined){
+				console.debug( i + "-->" + arr[i]);
+			}
+		}
+	</script>
+</body>
+</html>

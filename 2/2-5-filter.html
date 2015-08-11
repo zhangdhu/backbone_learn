@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>uder</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var arr = _.filter([2, 4, 6, 8, 10, 12, 15, 13], function(n){
+			return (!(n % 2 == 0))
+		})
+
+		console.log(arr.length != 0 ? arr : "未找到")
+	</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>uder</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var data = {
+			name: "张大虎",
+			age : "男",
+			email: "200715251@qq.com"
+		}
+		//_()方法把对象转成underscore对象	
+		var obj = _(data);
+
+		console.debug(obj.value().name + "_" + obj.value().email)
+
+		var arr = [15,465,25];
+
+		var objArr = _(arr);
+
+		console.debug("max = " + objArr.max() + ",min = " + objArr.min())
+	</script>
+</body>
+</html>
