@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>off</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+	   <script src="../js/backbone.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var person = Backbone.Model.extend({
+			defaults: {
+				name: "",
+				sex: "女",
+				age: 29,
+				score: 60
+			}
+		}) 
+
+		var man = new person();
+
+		var m = 0, n = 0;
+		var callback_a = function(){
+			m++;
+			console.log("你执行a事件的次数为：" + m + "次");
+		}
+
+		var callback_b = function(){
+			n++;
+			console.log("你执行b事件的次数为：" + n + "次");
+		}
+
+		man.on("event_a", callback_a);
+		man.on("event_b", callback_b);
+		man.off("event_a", callback_a);
+		man.trigger('event_a event_b');
+		man.off('event_b', callback_b);
+		man.trigger('event_a event_b');
+	</script>
+</body>
+</html>

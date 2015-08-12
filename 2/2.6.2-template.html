@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>uder</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var temp = _.template("<%console.log(str)%>")
+		temp({str:"姓名：张大虎"})
+
+		var tpl = _.template("<%- str %>")
+		console.log(tpl({str:"<div>姓名：张大虎2"}))
+	</script>
+</body>
+</html>

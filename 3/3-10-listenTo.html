@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>off</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+	   <script src="../js/backbone.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var person = Backbone.Model.extend({
+			defaults: {
+				name: "",
+				sex: "女",
+				age: 29,
+				score: 60
+			}
+		}) 
+
+		var man = new person();
+
+		var obj = _.extend({}, Backbone.Events);
+
+		obj.listenTo(man, "change:age", function(model, value){
+			var oldAge = model.previous("age");
+			var newAge = model.get("age");
+			if(oldAge != newAge){
+				console.log("oldAge = " + oldAge + ", newAge = " + newAge);
+			}
+		})
+
+		man.set("age", 30)
+	</script>
+</body>
+</html>

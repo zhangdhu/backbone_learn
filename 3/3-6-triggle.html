@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>on多个</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+	   <script src="../js/backbone.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var person = Backbone.Model.extend({
+			defaults: {
+				name: "",
+				sex: "女",
+				age: 29,
+				score: 60
+			}
+		}) 
+
+		var man = new person();
+
+		man.on("change_age_sex", function(model, value){
+			console.log("触发change_age_sex");
+		});
+
+		man.on("change:age", function(model, value){
+			if(value != undefined){
+				console.log("你修改了年龄" + value);
+			}else{
+				console.log("你手动触发change:age");
+			}
+		});
+		
+		man.trigger("change_age_sex")
+		man.trigger("change:age")
+		
+		man.set("age",61);
+
+		console.log(man)
+	</script>
+</body>
+</html>

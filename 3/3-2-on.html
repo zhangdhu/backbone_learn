@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>uder</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+	   <script src="../js/backbone.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var person = Backbone.Model.extend({
+			defaults: {
+				name: "",
+				sex: "女",
+				age: 29,
+				score: 60
+			}
+		}) 
+
+		var man = new person();
+
+		man.on("change", function(){
+			console.log("对象的默认值发生了变化");
+		});
+
+		man.on("change:sex", function(model, value){
+			console.log("你修改了性别！最新值是:" + value);
+		})
+
+		man.on("change:name", function(){
+			console.log("你修改了姓名！");
+		})
+
+		man.set("sex", "男");
+
+		console.log(man)
+	</script>
+</body>
+</html>

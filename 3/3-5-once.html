@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>on多个</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+	   <script src="../js/backbone.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var person = Backbone.Model.extend({
+			defaults: {
+				name: "",
+				sex: "女",
+				age: 29,
+				score: 60
+			}
+		}) 
+
+		var man = new person();
+
+		var intNum = 0;
+		man.once("change:score", function(model, value){
+			intNum++;
+			console.log("触发次数" + intNum);
+		});
+
+		man.set("score",61);
+		man.set("score", 31);
+
+		console.log(man)
+	</script>
+</body>
+</html>

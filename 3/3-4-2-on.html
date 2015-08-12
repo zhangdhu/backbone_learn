@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>on多个</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+	   <script src="../js/backbone.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var person = Backbone.Model.extend({
+			defaults: {
+				name: "",
+				sex: "女",
+				age: 29,
+				score: 60
+			}
+		}) 
+
+		var man = new person();
+
+		var objEvent = {
+			"change:score": score_change,
+			"change:age": age_change
+		};
+
+		man.on(objEvent);
+
+		function score_change(model, value){
+			var oldScore = model.previous("score");
+			var newScore = model.get("score");
+			if(oldScore != newScore){
+				console.log("oldScore = " + oldScore + ", newScore = " + newScore);
+			}	
+		}
+
+		function age_change(model, value){
+			var oldAge = model.previous("age");
+			var newAge = model.get("age");
+			if(oldAge != newAge){
+				console.log("oldAge = " + oldAge + ", newAge = " + newAge);
+			}
+		}
+
+		
+		man.set({"score": 40, "age": 10})
+
+		console.log(man)
+	</script>
+</body>
+</html>

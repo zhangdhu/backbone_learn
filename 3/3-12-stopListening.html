@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>off</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+	   <script src="../js/backbone.js"></script>
+</head>
+<body>
+	<div id="divTip"></div>
+
+	<script type="text/javascript">
+		var person = Backbone.Model.extend({
+			defaults: {
+				name: "",
+				sex: "女",
+				age: 29,
+				score: 60
+			}
+		}) 
+
+		var man = new person();
+
+		var obj = _.extend({}, Backbone.Events);
+
+		obj.listenTo(man, "change:age", function(model, value){
+			console.log("执行change:age");
+		})
+
+		obj.listenToOnce(man, "change:name", function(model, value){
+			console.log("执行change:name");
+		})
+
+		obj.listenToOnce(man, "change:sex", function(model, value){
+			console.log("执行change:sex");
+		})
+		//
+		obj.stopListening(man, "change:name");
+		man.set("name", "张大虎");
+		man.set("age", 30);
+		man.set("sex", "男");
+
+		obj.stopListening(man, "change:sex");
+		man.set("name", "张大虎2");
+		man.set("age", 20);
+		man.set("sex", "男2");
+
+		obj.stopListening(man, "change:age");
+		man.set("name", "张大虎3");
+		man.set("age", 40);
+		man.set("sex", "男3");
+	</script>
+</body>
+</html>

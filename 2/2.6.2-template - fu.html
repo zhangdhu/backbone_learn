@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<!-- html5 -->
+<html>
+<head>
+<meta charset="UTF-8">
+	<title>uder</title>
+	  <script src="../js/jquery.js"></script>
+	  <script src="../js/underscore.js"></script>
+</head>
+<body>
+	<script type="text/template" id = "tpl2">
+		<%  
+			for (var i = 0; i < list.length; i++) { 
+		%>
+			<% var item = list[i] %>
+		<li>
+			<span><%= item.stuId %></span>
+		</li>
+			<% } %>
+	</script>
+	<ul id="element">
+		<li>学号</li>
+	</ul>
+
+	<script type="text/javascript">
+		var ele = $("#element"),
+			tpl = $('#tpl2').html();
+		var data = {
+			list: [
+				{stuId: "100"},
+				{stuId: "101"},
+				{stuId: "102"},
+				{stuId: "103"}
+			]
+		}
+		var html2 = _.template(tpl, data);
+		console.debug(data);
+		console.debug(ele);
+		console.debug(tpl);
+		ele.append(html2);	
+	</script>
+</body>
+</html>
